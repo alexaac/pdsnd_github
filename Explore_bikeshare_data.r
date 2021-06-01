@@ -252,7 +252,8 @@ qplot(x = Gender, y = Duration.Hours, data = subset(chi, Gender != ""),
     ylab("Trip duration") +
     xlab("Gender") 
 
-# compare two datasets
+# Bonus
+# Compare two datasets, New York and Chicago
 
 names(ny)
 names(chi)

@@ -97,6 +97,25 @@ Men trip duration summary:
 - 3rd quartile: 847.5 seconds - 0.23542 hours
 - max: 21634 seconds - 6.00944 hours
 
+### Bonus
+
+**Compare two datasets, New York and Chicago**
+
+As a wrap-up, if I compare gender data for both sources, there are similar values for the median, and the difference is that for NYC there are more longer trips than for Chicago.
+
+Keep in mind that the trip duration could include dead time, too, when the bycicle is resting, so more research needs to be done in order to reach to a correct conclusion.
+
+Summary:
+
+- Women NYC median: 0.17889
+- Women Chicago median: 0.18556
+- Men NYC median: 0.15306
+- Men Chicago median: 0.14889
+- Women NYC max: 21.64389
+- Women Chicago max: 3.58694
+- Men NYC max: 30.73556
+- Men Chicago max: 6.00944
+
 ### Files used
 
 new_york_city.csv
