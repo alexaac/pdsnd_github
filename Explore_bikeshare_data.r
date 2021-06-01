@@ -119,11 +119,13 @@ ordered <- a[order(a$Trip.Duration, decreasing = TRUE), ]
 ordered$Duration.Hours <- ordered$Trip.Duration / 3600
 head(ordered, 10)
 print("Start stations for shorter trips - mean")
+
 a <- aggregate(Trip.Duration ~ Start.Station, data = wash, mean)
 ordered <- a[order(a$Trip.Duration, decreasing = TRUE), ]
 ordered$Duration.Hours <- ordered$Trip.Duration / 3600
 tail(ordered, 10)
 print("Start stations for longer trips - sum")
+
 a <- aggregate(Trip.Duration ~ Start.Station, data = wash, sum)
 ordered <- a[order(a$Trip.Duration, decreasing = TRUE), ]
 ordered$Duration.Hours <- ordered$Trip.Duration / 3600
@@ -166,11 +168,13 @@ top
 # alternate method to get top stations
 group_mean <- aggregate(wash$Trip.Duration, list(wash$Start.Station), mean)
 group_mean
+
 top10Stations <- group_mean[rev(order(group_mean$x)),"Group.1"][0:11]
 top10Stations
 
 wash$Group <- ifelse(wash$Start.Station %in% top10Stations, as.character(wash$Start.Station), "Other")
 wash$Group <- factor(wash$Group, levels=unique(c(as.character(top10Stations), "Other")))
+
 wash.summary <- ddply(wash, .(Group), summarise, total=sum(Trip.Duration))
 wash.summary$prop <- wash.summary$total / sum(wash.summary$total)
 
@@ -208,6 +212,7 @@ chi$Duration.Hours <- chi$Trip.Duration / 3600
 print("Summary for Trip duration by Gender")
 grouped <- by(chi$Trip.Duration, chi$Gender, summary)
 grouped
+
 print("Summary for Trip duration by Gender, in hours")
 grouped <- by(chi$Duration.Hours, chi$Gender, summary)
 grouped
@@ -288,10 +293,12 @@ qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
 print("Summary for Trip duration by Gender, in hours, for NYC")
 grouped <- by(ny$Duration.Hours, ny$Gender, summary)
 grouped
+
 print("Summary for Trip duration by Gender, in hours, for NYC, after removing the 300 hours outlier")
 ny_clean <- subset(ny, Duration.Hours < 300)
 grouped <- by(ny_clean$Duration.Hours, ny_clean$Gender, summary)
 grouped
+
 print("Summary for Trip duration by Gender, in hours, for Chicago")
 grouped <- by(chi$Duration.Hours, chi$Gender, summary)
 grouped
