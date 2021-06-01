@@ -146,10 +146,8 @@ library(ggplot2)
 # show mean trip duration by start station
 ggplot(data = subset(wash, Start.Station != "" & !is.na(Trip.Duration)), 
        aes(x = reorder(Start.Station, -Trip.Duration/3600), y = Trip.Duration/3600)) + 
-    # stat_summary(fun.y = mean, geom="bar") +
     geom_bar(stat = "summary_bin", fun.y = mean) +
     theme(axis.text.x = element_text(angle = 90, vjust=0.5, size=5)) +
-    #coord_cartesian(ylim = c(0, 10)) +
     ggtitle("Trip duration per start station, in hours") +
     xlab("Start station") +
     ylab("Trip Duration")
