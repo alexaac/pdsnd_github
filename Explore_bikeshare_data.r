@@ -189,6 +189,8 @@ ggplot(top, aes(x = reorder(Start.Station, -Duration.Hours), y = Duration.Hours)
     ylab("Trip duration in hours") +
     coord_flip()
 
+# Question 3
+# How is the trip duration distributed by gender in Chicago?
 
 head(chi)
 

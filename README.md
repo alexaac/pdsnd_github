@@ -62,6 +62,41 @@ The top start stations by lowest mean trip duration are:
 
 Trips that lasted more than 6 hours have originated in Reston YMCA station.
 
+### Question 3
+
+**How is the trip duration distributed by gender in Chicago?**
+
+This final view, showing the trip duration distributed by gender in Chicago, through quartiles, shows that the median of trip duration is a little higher for female ciclists, but the maximum trip duration was reached by a man.
+
+Summary:
+
+- maximum trip duration for women: 12913 seconds - 3.586944 hours
+- maximum trip duration for men: 21634 seconds - 6.009444 hours
+- maximum trip duration: 85408 seconds - 23.72444 hours
+- median of trip duration for women: 668 seconds - 0.1855556 hours
+- median of trip duration for men: 536 seconds - 0.1488889 hours
+- median of trip duration: 1370 seconds - 0.3805556 hours
+- number of women: 1723
+- number of men: 5159
+
+Women trip duration summary:
+
+- min: 60 seconds - 0.01667 hours
+- 1st quartile: 406 seconds - 0.11278 hours
+- median: 668 seconds - 0.18556 hours
+- mean: 774 seconds - 0.21500 hours
+- 3rd quartile: 1004 seconds - 0.27903 hours
+- max: 12913 seconds - 3.58694 hours
+
+Men trip duration summary:
+
+- min: 60 seconds - 0.01667 hours
+- 1st quartile: 338 seconds - 0.09389 hours
+- median: 536 seconds - 0.14889 hours
+- mean: 655.4 seconds - 0.18206 hours
+- 3rd quartile: 847.5 seconds - 0.23542 hours
+- max: 21634 seconds - 6.00944 hours
+
 ### Files used
 
 new_york_city.csv
