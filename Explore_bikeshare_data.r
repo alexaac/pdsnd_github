@@ -97,7 +97,7 @@ ggplot(data = subset(ny, Gender != "" & !is.na(Birth.Year)), aes(x = Birth.Year,
 ggplot(data = subset(ny, Gender != "" & !is.na(Birth.Year)), aes(x = Birth.Year, y = ..density..)) +
     geom_histogram(binwidth = 1,colour="orange", fill=NA) +
     facet_wrap(~Gender)+ 
-    coord_cartesian(xlim = c(1950,2002)) +
+    coord_cartesian(xlim = c(1950, 2002)) +
     ggtitle("Birth year by Gender") +
     xlab("Birth year") +
     ylab("Count") 
@@ -226,7 +226,7 @@ qplot(x = Gender, y = Duration.Hours, data = chi,
 # limit trip duration results
 
 qplot(x = Gender, y = Duration.Hours, data = chi,
-    geom = 'boxplot', ylim = c(0,7)) +
+    geom = 'boxplot', ylim = c(0, 7)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration in hours") +
     xlab("Gender") 
@@ -234,7 +234,7 @@ qplot(x = Gender, y = Duration.Hours, data = chi,
 # remove empty Gender records
 
 qplot(x = Gender, y = Duration.Hours, data = subset(chi, Gender != ""),
-    geom = 'boxplot', ylim = c(0,7)) +
+    geom = 'boxplot', ylim = c(0, 7)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration in hours") +
     xlab("Gender") 
@@ -242,7 +242,7 @@ qplot(x = Gender, y = Duration.Hours, data = subset(chi, Gender != ""),
 # limit the trip duration values to 2 hours
 
 qplot(x = Gender, y = Duration.Hours, data = subset(chi, Gender != ""),
-    geom = 'boxplot', ylim = c(0,2)) +
+    geom = 'boxplot', ylim = c(0, 2)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration") +
     xlab("Gender") 
@@ -272,7 +272,7 @@ qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
 # remove more outliers
 
 qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
-    geom = 'boxplot', ylim = c(0,35)) +
+    geom = 'boxplot', ylim = c(0, 35)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration") +
     xlab("Gender") + 
@@ -281,7 +281,7 @@ qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
 # remove more outliers
 
 qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
-    geom = 'boxplot', ylim = c(0,5)) +
+    geom = 'boxplot', ylim = c(0, 5)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration") +
     xlab("Gender") + 
