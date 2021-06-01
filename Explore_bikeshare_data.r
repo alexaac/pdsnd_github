@@ -3,6 +3,9 @@ ny = read.csv('new_york_city.csv')
 wash = read.csv('washington.csv')
 chi = read.csv('chicago.csv')
 
+# Question 1
+# For NYC, how are ciclists distributed by gender and age?
+
 head(ny)
 
 # look at data
