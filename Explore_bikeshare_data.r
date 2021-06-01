@@ -100,7 +100,7 @@ ggplot(data = subset(ny, Gender != "" & !is.na(Birth.Year)), aes(x = Birth.Year,
 ggplot(data = subset(ny, Gender != "" & !is.na(Birth.Year)), aes(x = Birth.Year, y = ..density..)) +
     geom_histogram(binwidth = 1,colour="orange", fill=NA) +
     facet_wrap(~Gender)+ 
-    coord_cartesian(xlim = c(1950,2002)) +
+    coord_cartesian(xlim = c(1950, 2002)) +
     ggtitle("Birth year by Gender") +
     xlab("Birth year") +
     ylab("Count") 
@@ -125,11 +125,13 @@ ordered <- a[order(a$Trip.Duration, decreasing = TRUE), ]
 ordered$Duration.Hours <- ordered$Trip.Duration / 3600
 head(ordered, 10)
 print("Start stations for shorter trips - mean")
+
 a <- aggregate(Trip.Duration ~ Start.Station, data = wash, mean)
 ordered <- a[order(a$Trip.Duration, decreasing = TRUE), ]
 ordered$Duration.Hours <- ordered$Trip.Duration / 3600
 tail(ordered, 10)
 print("Start stations for longer trips - sum")
+
 a <- aggregate(Trip.Duration ~ Start.Station, data = wash, sum)
 ordered <- a[order(a$Trip.Duration, decreasing = TRUE), ]
 ordered$Duration.Hours <- ordered$Trip.Duration / 3600
@@ -150,10 +152,8 @@ library(ggplot2)
 # show mean trip duration by start station
 ggplot(data = subset(wash, Start.Station != "" & !is.na(Trip.Duration)), 
        aes(x = reorder(Start.Station, -Trip.Duration/3600), y = Trip.Duration/3600)) + 
-    # stat_summary(fun.y = mean, geom="bar") +
     geom_bar(stat = "summary_bin", fun.y = mean) +
     theme(axis.text.x = element_text(angle = 90, vjust=0.5, size=5)) +
-    #coord_cartesian(ylim = c(0, 10)) +
     ggtitle("Trip duration per start station, in hours") +
     xlab("Start station") +
     ylab("Trip Duration")
@@ -172,11 +172,13 @@ top
 # alternate method to get top stations
 group_mean <- aggregate(wash$Trip.Duration, list(wash$Start.Station), mean)
 group_mean
+
 top10Stations <- group_mean[rev(order(group_mean$x)),"Group.1"][0:11]
 top10Stations
 
 wash$Group <- ifelse(wash$Start.Station %in% top10Stations, as.character(wash$Start.Station), "Other")
 wash$Group <- factor(wash$Group, levels=unique(c(as.character(top10Stations), "Other")))
+
 wash.summary <- ddply(wash, .(Group), summarise, total=sum(Trip.Duration))
 wash.summary$prop <- wash.summary$total / sum(wash.summary$total)
 
@@ -216,6 +218,7 @@ chi$Duration.Hours <- chi$Trip.Duration / 3600
 print("Summary for Trip duration by Gender")
 grouped <- by(chi$Trip.Duration, chi$Gender, summary)
 grouped
+
 print("Summary for Trip duration by Gender, in hours")
 grouped <- by(chi$Duration.Hours, chi$Gender, summary)
 grouped
@@ -231,7 +234,7 @@ qplot(x = Gender, y = Duration.Hours, data = chi,
 # limit trip duration results
 
 qplot(x = Gender, y = Duration.Hours, data = chi,
-    geom = 'boxplot', ylim = c(0,7)) +
+    geom = 'boxplot', ylim = c(0, 7)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration in hours") +
     xlab("Gender") 
@@ -239,7 +242,7 @@ qplot(x = Gender, y = Duration.Hours, data = chi,
 # remove empty Gender records
 
 qplot(x = Gender, y = Duration.Hours, data = subset(chi, Gender != ""),
-    geom = 'boxplot', ylim = c(0,7)) +
+    geom = 'boxplot', ylim = c(0, 7)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration in hours") +
     xlab("Gender") 
@@ -247,7 +250,7 @@ qplot(x = Gender, y = Duration.Hours, data = subset(chi, Gender != ""),
 # limit the trip duration values to 2 hours
 
 qplot(x = Gender, y = Duration.Hours, data = subset(chi, Gender != ""),
-    geom = 'boxplot', ylim = c(0,2)) +
+    geom = 'boxplot', ylim = c(0, 2)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration") +
     xlab("Gender") 
@@ -278,7 +281,7 @@ qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
 # remove more outliers
 
 qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
-    geom = 'boxplot', ylim = c(0,35)) +
+    geom = 'boxplot', ylim = c(0, 35)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration") +
     xlab("Gender") + 
@@ -287,7 +290,7 @@ qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
 # remove more outliers
 
 qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
-    geom = 'boxplot', ylim = c(0,5)) +
+    geom = 'boxplot', ylim = c(0, 5)) +
     ggtitle("Trip duration by Gender") +
     ylab("Trip duration") +
     xlab("Gender") + 
@@ -297,10 +300,12 @@ qplot(x = Gender, y = Duration.Hours, data = subset(merged, Gender != ""),
 print("Summary for Trip duration by Gender, in hours, for NYC")
 grouped <- by(ny$Duration.Hours, ny$Gender, summary)
 grouped
+
 print("Summary for Trip duration by Gender, in hours, for NYC, after removing the 300 hours outlier")
 ny_clean <- subset(ny, Duration.Hours < 300)
 grouped <- by(ny_clean$Duration.Hours, ny_clean$Gender, summary)
 grouped
+
 print("Summary for Trip duration by Gender, in hours, for Chicago")
 grouped <- by(chi$Duration.Hours, chi$Gender, summary)
 grouped
