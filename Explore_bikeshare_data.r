@@ -105,6 +105,9 @@ ggplot(data = subset(ny, Gender != "" & !is.na(Birth.Year)), aes(x = Birth.Year,
     xlab("Birth year") +
     ylab("Count") 
 
+# Question 2
+# How is the trip duration distributed by start station in Washington?
+
 head(wash)
 
 # look at data

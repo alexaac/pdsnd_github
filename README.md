@@ -30,6 +30,38 @@ Summary:
 - number of women: 12159
 - number of men: 37201
 
+### Question 2
+
+**How is the trip duration distributed by start station in Washington?**
+
+For Washington, the top start stations by mean trip duration are:
+
+1.  Reston YMCA (22633.484 seconds ~ 6 hours)
+2.  Franklin & S Washington St
+3.  New Hampshire & Kirklynn Ave
+4.  Sligo Ave & Carroll Ln
+5.  Division Ave & Foote St NE
+6.  3rd & Underwood St NW
+7.  Key West Ave & Siesta Key Way
+8.  Barcroft Community Center
+9.  S Walter Reed Dr & 8th St S
+10. Minnesota Ave Metro/DOES
+
+The top start stations by lowest mean trip duration are:
+
+1.  Columbus Ave & Gramercy Blvd (88.7610 seconds)
+2.  Solutions & Greensboro Dr
+3.  Columbia Pike & S Taylor St
+4.  Westpark & Park Run Dr
+5.  Greensboro & International Dr
+6.  Columbus Ave & Tribeca St
+7.  Tysons Corner Station
+8.  Lee Center
+9.  Westpark Dr & Leesburg Pike
+10. Benning Branch Library
+
+Trips that lasted more than 6 hours have originated in Reston YMCA station.
+
 ### Files used
 
 new_york_city.csv
